@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ...existing content... -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seahorse Script</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "hippo-lang": "./lang.js"
+    }
+  }
+  </script>
+  <!-- ...existing content... -->
+</head>
+<body>
+  <!-- ...existing content... -->
+  <header class="app-header">
+    <h1>Seahorse Script</h1>
+    <p class="sub">An esoteric language that uses only the seahorse emoji and whitespace.</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <div class="row">
+        <label class="emoji-label">
+          Emoji token:
+          <input id="emojiInput" class="emoji-input" placeholder="Paste the seahorse emoji here" />
+        </label>
+        <div class="actions">
+          <button id="insertEmoji" class="btn">Insert emoji</button>
+          <button id="runBtn" class="btn primary">Run</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+      </div>
+
+      <div class="editor-wrap">
+        <textarea id="editor" class="editor" spellcheck="false" placeholder="Write your program using ONLY the seahorse emoji and whitespace (spaces/newlines)."></textarea>
+      </div>
+
+      <details class="help">
+        <summary>Language reference</summary>
+        <div class="help-content">
+          <p>Program is sequences of the chosen emoji. Groups separated by whitespace become numbers (length of each group).</p>
+          <p>Instructions are numbers (opcodes). Some take an argument (the next number).</p>
+          <ul class="ops">
+            <li>1: push [n]</li>
+            <li>2: add</li>
+            <li>3: sub</li>
+            <li>4: mul</li>
+            <li>5: div</li>
+            <li>6: print</li>
+            <li>7: dup</li>
+            <li>8: swap</li>
+            <li>9: pop</li>
+            <li>10: read (prompt number)</li>
+            <li>11: jz [offset] (relative, can be negative)</li>
+            <li>12: halt</li>
+          </ul>
+          <p>Example (compute 1+2 then print 3):</p>
+          <pre class="example" id="exampleBlock"></pre>
+        </div>
+      </details>
+    </section>
+
+    <section class="panel">
+      <h2>Output</h2>
+      <pre id="output" class="output"></pre>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Font: Space Mono / Noto Sans</span>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+  <!-- ...existing content... -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
